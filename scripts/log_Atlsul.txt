@@ -1,0 +1,17 @@
+]0;IPython: modelo_hindcast/scripts[0;31m[0m
+[0;31mKeyError[0mTraceback (most recent call last)
+[0;32m/home/oceano/WW3-v6.07/model/ww3_shell/modelo_hindcast/scripts/cria_imagens_shell_AtlSul.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m     14[0m [0mresultsDir[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0menviron[0m[0;34m[[0m[0;34m"resultsdir"[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     15[0m [0msimulationName[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0menviron[0m[0;34m[[0m[0;34m"simulation_name"[0m[0;34m][0m[0;34m[0m[0m
+[0;32m---> 16[0;31m [0mstartingDate[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0menviron[0m[0;34m[[0m[0;34m"starting_date"[0m[0;34m][0m[0;34m[0m[0m
+[0m[1;32m     17[0m [0mstartingTime[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0menviron[0m[0;34m[[0m[0;34m"starting_time"[0m[0;34m][0m[0;34m[0m[0m
+[1;32m     18[0m [0mendingDate[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0menviron[0m[0;34m[[0m[0;34m"ending_date"[0m[0;34m][0m[0;34m[0m[0m
+
+[0;32m/home/oceano/anaconda2/lib/python2.7/UserDict.pyc[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m     38[0m         [0;32mif[0m [0mhasattr[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m__class__[0m[0;34m,[0m [0;34m"__missing__"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m     39[0m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m__class__[0m[0;34m.[0m[0m__missing__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[0;32m---> 40[0;31m         [0;32mraise[0m [0mKeyError[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     41[0m     [0;32mdef[0m [0m__setitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0mitem[0m[0;34m)[0m[0;34m:[0m [0mself[0m[0;34m.[0m[0mdata[0m[0;34m[[0m[0mkey[0m[0;34m][0m [0;34m=[0m [0mitem[0m[0;34m[0m[0m
+[1;32m     42[0m     [0;32mdef[0m [0m__delitem__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m)[0m[0;34m:[0m [0;32mdel[0m [0mself[0m[0;34m.[0m[0mdata[0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'starting_date'
