@@ -89,6 +89,20 @@ for k, v in hsBuoyDict.items():
 			continue
 	print '*** End of loop interaction ***'
 
+
+hsBuoyFinalDictOrdered = collections.OrderedDict(sorted(hsBuoyFinalDict.items()))
+hsSwanFinalDictOrdered = collections.OrderedDict(sorted(hsSwanFinalDict.items()))
+
+# removing 'nan' values
+# HS
+for k, v in hsBuoyFinalDictOrdered.items():
+	if np.isnan(v) == True:
+		del hsBuoyFinalDictOrdered[k]
+		del hsSwanFinalDictOrdered[k]
+
+
+
+
 # defining the seasons
 
 # 2017
@@ -130,7 +144,7 @@ Spring2018Swan = {}
 
 
 # creating season dictionaries
-for (k, v), (k2, v2) in zip(hsBuoyFinalDict.items(), hsSwanFinalDict.items()):
+for (k, v), (k2, v2) in zip(hsBuoyFinalDictOrdered.items(), hsSwanFinalDictOrdered.items()):
 	keyDate = datetime.strptime(k, '%Y%m%d_%H%M')
 	if Summer2017 <= keyDate < Autumn2017:
 		Summer2017Buoy["{0}".format(k)] = v
