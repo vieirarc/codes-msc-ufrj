@@ -277,6 +277,8 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao'
 
 # Summer 2017
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Summer 2017')
@@ -298,6 +300,8 @@ plt.savefig(os.path.join(pathSave, 'time_series_valid_Summer2017'), bbox_inches=
 
 
 # Autumn 2017
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Autumn 2017')
@@ -319,6 +323,8 @@ plt.savefig(os.path.join(pathSave, 'time_series_valid_Autumn2017'), bbox_inches=
 
 
 # Winter 2017
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Winter 2017')
@@ -340,6 +346,8 @@ plt.savefig(os.path.join(pathSave, 'time_series_valid_Winter2017'), bbox_inches=
 
 
 # Spring 2017
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Spring 2017')
@@ -362,6 +370,8 @@ plt.savefig(os.path.join(pathSave, 'time_series_valid_Spring2017'), bbox_inches=
 
 
 # Summer 2018
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Summer 2018')
@@ -384,6 +394,8 @@ plt.savefig(os.path.join(pathSave, 'time_series_valid_Summer2018'), bbox_inches=
 
 
 # Autumn 2018
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Autumn 2018')
@@ -406,6 +418,8 @@ plt.savefig(os.path.join(pathSave, 'time_series_valid_Autumn2018'), bbox_inches=
 
 
 # Winter 2018
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Winter 2018')
@@ -427,6 +441,8 @@ plt.savefig(os.path.join(pathSave, 'time_series_valid_Winter2018'), bbox_inches=
 
 
 # Spring 2018
+fig = matplotlib.pyplot.gcf()
+fig.set_size_inches(18.5, 10.5)
 ax = plt.subplot()
 ax.grid(True)
 ax.set_title(u'Time Series Significant Wave Height - Spring 2018')
