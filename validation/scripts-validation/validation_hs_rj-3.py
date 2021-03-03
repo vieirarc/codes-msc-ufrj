@@ -290,198 +290,198 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 # creating graphs
 pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3/hs'
 
-for i in np.arange(1,9):
-	# Summer 2017
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Summer 2017', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
 
-	plt.plot(Summer2017DateList ,Summer2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Summer2017DateList, Summer2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='best')
+# Summer 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Summer 2017', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
 
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.plot(Summer2017DateList ,Summer2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Summer2017DateList, Summer2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_hs_Summer2017'), bbox_inches='tight', dpi=200)
-	plt.close()
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
 
-	# Autumn 2017
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Autumn 2017', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '1_time_series_valid_hs_Summer2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
-	plt.plot(Autumn2017DateList, Autumn2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Autumn2017DateList, Autumn2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='best')
+# Autumn 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Autumn 2017', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
 
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.plot(Autumn2017DateList, Autumn2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Autumn2017DateList, Autumn2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Autumn2017'), bbox_inches='tight', dpi=200)
-	plt.close()
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
 
-	# Winter 2017
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Winter 2017', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '2_time_series_valid_Autumn2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
-	plt.plot(Winter2017DateList, Winter2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Winter2017DateList, Winter2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='best')
+# Winter 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Winter 2017', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
 
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.plot(Winter2017DateList, Winter2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Winter2017DateList, Winter2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Winter2017'), bbox_inches='tight', dpi=200)
-	plt.close()
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
 
-	# Spring 2017
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Spring 2017', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '3_time_series_valid_Winter2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
-	plt.plot(Spring2017DateList, Spring2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Spring2017DateList, Spring2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='best')
+# Spring 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Spring 2017', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
 
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.plot(Spring2017DateList, Spring2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Spring2017DateList, Spring2017SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Spring2017'), bbox_inches='tight', dpi=200)
-	plt.close()
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
 
-
-	# Summer 2018
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Summer 2018', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
-
-	plt.plot(Summer2018DateList, Summer2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Summer2018DateList, Summer2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='best')
-
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
-
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Summer2018'), bbox_inches='tight', dpi=200)
-	plt.close()
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '4_time_series_valid_Spring2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 
-	# Autumn 2018
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Autumn 2018', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
+# Summer 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Summer 2018', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
 
-	plt.plot(Autumn2018DateList, Autumn2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Autumn2018DateList, Autumn2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='best')
+plt.plot(Summer2018DateList, Summer2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Summer2018DateList, Summer2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
 
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Autumn2018'), bbox_inches='tight', dpi=200)
-	plt.close()
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '5_time_series_valid_Summer2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
 
-	# Winter 2018
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Winter 2018', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
+# Autumn 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Autumn 2018', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
 
-	plt.plot(Winter2018DateList, Winter2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Winter2018DateList, Winter2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='best')
+plt.plot(Autumn2018DateList, Autumn2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Autumn2018DateList, Autumn2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
 
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Winter2018'), bbox_inches='tight', dpi=200)
-	plt.close()
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '6_time_series_valid_Autumn2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
-	# Spring 2018
-	fig = plt.gcf()
-	fig.set_size_inches(23.5, 9.5)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Significant Wave Height - Spring 2018', fontsize=20)
-	font = {'size':16}
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
 
-	plt.plot(Spring2018DateList, Spring2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
-	plt.plot(Spring2018DateList, Spring2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
-	plt.legend(loc='upper right')
+# Winter 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Winter 2018', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
 
-	plt.xticks(rotation=45)
-	plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.plot(Winter2018DateList, Winter2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Winter2018DateList, Winter2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Spring2018'), bbox_inches='tight', dpi=200)
-	plt.close()
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '7_time_series_valid_Winter2018'), bbox_inches='tight', dpi=200)
+plt.close()
+
+# Spring 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
+ax = plt.subplot()
+ax.grid(True)
+ax.set_title(u'Time Series Significant Wave Height - Spring 2018', fontsize=20)
+font = {'size':16}
+locator = mdates.HourLocator(interval=72)  # every month
+dfmt = mdates.DateFormatter('%d%b')
+
+plt.plot(Spring2018DateList, Spring2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Spring2018DateList, Spring2018SwanList, color='red', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='upper right')
+
+plt.xticks(rotation=45)
+plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+
+X = plt.gca().xaxis
+X.set_major_locator(locator)
+X.set_major_formatter(dfmt)
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, str(i) + '8_time_series_valid_Spring2018'), bbox_inches='tight', dpi=200)
+plt.close()
