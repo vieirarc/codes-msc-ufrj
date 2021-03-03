@@ -75,5 +75,7 @@ echo "Statistics table RJ-4 done!"
 echo "."
 echo "."
 echo "."
-
+echo " "
 echo " ______ End of Program ______ "
+echo " "
+echo " "

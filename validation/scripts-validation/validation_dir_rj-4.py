@@ -284,21 +284,6 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 	Spring2018DateList.append(keyDate)
 	Spring2018BuoyList.append(v)
 	Spring2018SwanList.append(v2)
-	ax = plt.subplot()
-	ax.grid(True)
-	ax.set_title(u'Time Series Average Wave Direction - Spring 2018')
-	locator = mdates.HourLocator(interval=72)  # every month
-	dfmt = mdates.DateFormatter('%d%b')
-	plt.plot(keyDate ,v, linewidth=1.5, label='RJ-3 Buoy')
-	plt.plot(keyDate, v2, color='orange', linewidth=1.5, label='SWAN Simulation')
-	plt.legend(loc='upper left', bbox_to_anchor=(0.54, 1.0))
-	plt.xticks(rotation=45)
-	plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
-	X = plt.gca().xaxis
-	X.set_major_locator(locator)
-	X.set_major_formatter(dfmt)
-	plt.savefig(os.path.join(pathSave, 'time_series_valid_Spring2018'), bbox_inches='tight', dpi=400)
-
 
 
 # creating graphs
