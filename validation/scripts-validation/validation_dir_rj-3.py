@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os
 import numpy as np
 from netCDF4 import Dataset
@@ -319,7 +320,7 @@ plt.plot(Summer2017DateList, Summer2017SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
@@ -343,7 +344,7 @@ plt.plot(Autumn2017DateList, Autumn2017SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
@@ -367,7 +368,7 @@ plt.plot(Winter2017DateList, Winter2017SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
@@ -391,7 +392,7 @@ plt.plot(Spring2017DateList, Spring2017SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
@@ -416,7 +417,7 @@ plt.plot(Summer2018DateList, Summer2018SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
@@ -441,7 +442,7 @@ plt.plot(Autumn2018DateList, Autumn2018SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
@@ -466,7 +467,7 @@ plt.plot(Winter2018DateList, Winter2018SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
@@ -490,7 +491,7 @@ plt.plot(Spring2018DateList, Spring2018SwanList, color='orange', linewidth=2.2, 
 plt.legend(loc='upper right')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
+plt.ylabel(u'Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)

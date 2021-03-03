@@ -15,6 +15,8 @@ export workdir=/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/scripts-va
 # python scripts validation
 
 # **** RJ-3 Buoy **** #
+echo ' '
+echo ' '
 echo " *** RJ-3 Buoy *** "
 echo "."
 echo "."
