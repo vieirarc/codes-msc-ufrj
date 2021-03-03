@@ -90,6 +90,17 @@ for k, v in dirBuoyDict.items():
 			continue
 	print '*** End of loop interaction ***'
 
+dirBuoyFinalDictOrdered = collections.OrderedDict(sorted(dirBuoyFinalDict.items()))
+dirSwanFinalDictOrdered = collections.OrderedDict(sorted(dirSwanFinalDict.items()))
+
+# removing 'nan' values
+# HS
+for k, v in dirBuoyFinalDictOrdered.items():
+	if np.isnan(v) == True:
+		del dirBuoyFinalDictOrdered[k]
+		del dirSwanFinalDictOrdered[k]
+
+
 # defining the seasons
 
 # 2017
@@ -131,7 +142,7 @@ Spring2018Swan = {}
 
 
 # creating season dictionaries
-for (k, v), (k2, v2) in zip(dirBuoyFinalDict.items(), dirSwanFinalDict.items()):
+for (k, v), (k2, v2) in zip(dirBuoyFinalDictOrdered.items(), dirSwanFinalDictOrdered.items()):
 	keyDate = datetime.strptime(k, '%Y%m%d_%H%M')
 	if Summer2017 <= keyDate < Autumn2017:
 		Summer2017Buoy["{0}".format(k)] = v
@@ -288,178 +299,202 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 	plt.savefig(os.path.join(pathSave, 'time_series_valid_Spring2018'), bbox_inches='tight', dpi=400)
 
 
-'''
+
 # creating graphs
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao'
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3/dir'
+
 
 # Summer 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Summer 2017')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Summer 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Summer2017DateList ,Summer2017BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Summer2017DateList, Summer2017SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left', bbox_to_anchor=(0.54, 1.0))
+plt.plot(Summer2017DateList ,Summer2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Summer2017DateList, Summer2017SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Summer2017'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '1_time_series_wdir_valid_Summer2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Autumn 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Autumn 2017')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Autumn 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Autumn2017DateList, Autumn2017BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Autumn2017DateList, Autumn2017SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Autumn2017DateList, Autumn2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Autumn2017DateList, Autumn2017SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Autumn2017'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '2_time_series_wdir_valid_Autumn2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Winter 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Winter 2017')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Winter 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Winter2017DateList, Winter2017BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Winter2017DateList, Winter2017SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Winter2017DateList, Winter2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Winter2017DateList, Winter2017SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Winter2017'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '3_time_series_wdir_valid_Winter2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Spring 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Spring 2017')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Spring 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Spring2017DateList, Spring2017BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Spring2017DateList, Spring2017SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Spring2017DateList, Spring2017BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Spring2017DateList, Spring2017SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Spring2017'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '4_time_series_wdir_valid_Spring2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 
 # Summer 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Summer 2018')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Summer 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Summer2018DateList, Summer2018BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Summer2018DateList, Summer2018SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Summer2018DateList, Summer2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Summer2018DateList, Summer2018SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Summer2018'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '5_time_series_wdir_valid_Summer2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
 
 # Autumn 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Autumn 2018')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Autumn 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Autumn2018DateList, Autumn2018BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Autumn2018DateList, Autumn2018SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Autumn2018DateList, Autumn2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Autumn2018DateList, Autumn2018SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Autumn2018'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '6_time_series_wdir_valid_Autumn2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
 
 # Winter 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Winter 2018')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Winter 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Winter2018DateList, Winter2018BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Winter2018DateList, Winter2018SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Winter2018DateList, Winter2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Winter2018DateList, Winter2018SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Winter2018'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '7_time_series_wdir_valid_Winter2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Spring 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Average Wave Direction - Spring 2018')
-
+ax.set_title(u'Time Series Wdir - RJ-3 Buoy - Spring 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Spring2018DateList, Spring2018BuoyList, linewidth=1.5, label='RJ-3 Buoy')
-plt.plot(Spring2018DateList, Spring2018SwanList, color='orange', linewidth=1.5, label='SWAN Simulation')
+plt.plot(Spring2018DateList, Spring2018BuoyList, linewidth=2.2, label='RJ-3 Buoy')
+plt.plot(Spring2018DateList, Spring2018SwanList, color='orange', linewidth=2.2, label='SWAN Simulation')
 plt.legend(loc='upper right')
 
 plt.xticks(rotation=45)
-plt.ylabel('Average Wave Direction (degrees)',size=13, rotation=90, labelpad=4)
+plt.ylabel('Average Wave Direction (°)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Spring2018'), bbox_inches='tight', dpi=400)
-
-'''
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '8_time_series_wdir_valid_Spring2018'), bbox_inches='tight', dpi=200)
+plt.close()

@@ -88,6 +88,17 @@ for k, v in tpBuoyDict.items():
 			continue
 	print '*** ### ***'
 
+tpBuoyFinalDictOrdered = collections.OrderedDict(sorted(tpBuoyFinalDict.items()))
+tpSwanFinalDictOrdered = collections.OrderedDict(sorted(tpSwanFinalDict.items()))
+
+# removing 'nan' values
+# TP
+for k3, v3 in tpBuoyFinalDictOrdered.items():
+	if np.isnan(v3) == True:
+		del tpBuoyFinalDictOrdered[k3]
+		del tpSwanFinalDictOrdered[k3]
+
+
 # defining the seasons
 
 # 2017
@@ -129,7 +140,7 @@ Spring2018Swan = {}
 
 
 # creating season dictionaries
-for (k, v), (k2, v2) in zip(tpBuoyFinalDict.items(), tpSwanFinalDict.items()):
+for (k, v), (k2, v2) in zip(tpBuoyFinalDictOrdered.items(), tpSwanFinalDictOrdered.items()):
 	keyDate = datetime.strptime(k, '%Y%m%d_%H%M')
 	if Summer2017 <= keyDate < Autumn2017:
 		Summer2017Buoy["{0}".format(k)] = v
@@ -274,175 +285,197 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 
 
 # creating graphs
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao'
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/tp'
 
 # Summer 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Summer 2017')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Summer 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Summer2017DateList ,Summer2017BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Summer2017DateList, Summer2017SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Summer2017DateList ,Summer2017BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Summer2017DateList, Summer2017SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Summer2017'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '1_time_series_tp_valid_Summer2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Autumn 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Autumn 2017')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Autumn 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Autumn2017DateList, Autumn2017BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Autumn2017DateList, Autumn2017SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Autumn2017DateList, Autumn2017BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Autumn2017DateList, Autumn2017SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Autumn2017'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '2_time_series_tp_valid_Autumn2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Winter 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Winter 2017')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Winter 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Winter2017DateList, Winter2017BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Winter2017DateList, Winter2017SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Winter2017DateList, Winter2017BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Winter2017DateList, Winter2017SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Winter2017'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '3_time_series_tp_valid_Winter2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Spring 2017
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Spring 2017')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Spring 2017', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Spring2017DateList, Spring2017BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Spring2017DateList, Spring2017SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Spring2017DateList, Spring2017BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Spring2017DateList, Spring2017SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Spring2017'), bbox_inches='tight', dpi=400)
-
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '4_time_series_tp_valid_Spring2017'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Summer 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Summer 2018')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Summer 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Summer2018DateList, Summer2018BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Summer2018DateList, Summer2018SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Summer2018DateList, Summer2018BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Summer2018DateList, Summer2018SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Summer2018'), bbox_inches='tight', dpi=400)
-
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '5_time_series_tp_valid_Summer2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Autumn 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Autumn 2018')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Autumn 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Autumn2018DateList, Autumn2018BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Autumn2018DateList, Autumn2018SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Autumn2018DateList, Autumn2018BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Autumn2018DateList, Autumn2018SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Autumn2018'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '6_time_series_tp_valid_Autumn2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
 
 # Winter 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Winter 2018')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Winter 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Winter2018DateList, Winter2018BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Winter2018DateList, Winter2018SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='upper left')
+plt.plot(Winter2018DateList, Winter2018BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Winter2018DateList, Winter2018SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Winter2018'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '7_time_series_tp_valid_Winter2018'), bbox_inches='tight', dpi=200)
+plt.close()
 
 # Spring 2018
+fig = plt.gcf()
+fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Peak Wave Period - Spring 2018')
-
+ax.set_title(u'Time Series Tp - RJ-4 Buoy - Spring 2018', fontsize=20)
+font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
 
-plt.plot(Spring2018DateList, Spring2018BuoyList, color='black', linewidth=1.5, label='RJ-4 Buoy')
-plt.plot(Spring2018DateList, Spring2018SwanList, color='green', linewidth=1.5, label='SWAN Simulation')
-plt.legend(loc='lower left')
+plt.plot(Spring2018DateList, Spring2018BuoyList, color='black', linewidth=2.2, label='RJ-4 Buoy')
+plt.plot(Spring2018DateList, Spring2018SwanList, color='green', linewidth=2.2, label='SWAN Simulation')
+plt.legend(loc='upper right')
 
 plt.xticks(rotation=45)
-plt.ylabel('Peak Wave Period',size=13, rotation=90, labelpad=4)
+plt.ylabel('Peak period (s)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
-plt.savefig(os.path.join(pathSave, 'time_series_valid_Spring2018'), bbox_inches='tight', dpi=400)
-
+plt.rc('font', **font)
+plt.savefig(os.path.join(pathSave, '8_time_series_tp_valid_Spring2018'), bbox_inches='tight', dpi=200)
+plt.close()

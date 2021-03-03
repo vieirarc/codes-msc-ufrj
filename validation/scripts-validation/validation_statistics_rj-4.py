@@ -182,7 +182,6 @@ for (k, v), (k2, v2) in zip(tpBuoyFinalDictOrdered.items(), tpSwanFinalDictOrder
 biasTp = (1/len(tpBuoyFinalDictOrdered))*sumTpXiYi
 
 
-
 # RMSE HS
 sumHsXiYiB = 0
 

@@ -101,8 +101,6 @@ for k, v in hsBuoyFinalDictOrdered.items():
 		del hsSwanFinalDictOrdered[k]
 
 
-
-
 # defining the seasons
 
 # 2017
@@ -296,7 +294,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Summer 2017', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Summer 2017', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -306,13 +304,13 @@ plt.plot(Summer2017DateList, Summer2017SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '1_time_series_valid_hs_Summer2017'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '1_time_series_hs_valid_Summer2017'), bbox_inches='tight', dpi=200)
 plt.close()
 
 # Autumn 2017
@@ -320,7 +318,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Autumn 2017', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Autumn 2017', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -330,13 +328,13 @@ plt.plot(Autumn2017DateList, Autumn2017SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '2_time_series_valid_Autumn2017'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '2_time_series_hs_valid_Autumn2017'), bbox_inches='tight', dpi=200)
 plt.close()
 
 # Winter 2017
@@ -344,7 +342,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Winter 2017', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Winter 2017', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -354,13 +352,13 @@ plt.plot(Winter2017DateList, Winter2017SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '3_time_series_valid_Winter2017'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '3_time_series_hs_valid_Winter2017'), bbox_inches='tight', dpi=200)
 plt.close()
 
 # Spring 2017
@@ -368,7 +366,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Spring 2017', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Spring 2017', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -378,13 +376,13 @@ plt.plot(Spring2017DateList, Spring2017SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '4_time_series_valid_Spring2017'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '4_time_series_hs_valid_Spring2017'), bbox_inches='tight', dpi=200)
 plt.close()
 
 
@@ -393,7 +391,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Summer 2018', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Summer 2018', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -403,13 +401,13 @@ plt.plot(Summer2018DateList, Summer2018SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '5_time_series_valid_Summer2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '5_time_series_hs_valid_Summer2018'), bbox_inches='tight', dpi=200)
 plt.close()
 
 
@@ -418,7 +416,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Autumn 2018', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Autumn 2018', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -428,13 +426,13 @@ plt.plot(Autumn2018DateList, Autumn2018SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '6_time_series_valid_Autumn2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '6_time_series_hs_valid_Autumn2018'), bbox_inches='tight', dpi=200)
 plt.close()
 
 
@@ -443,7 +441,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Winter 2018', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Winter 2018', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -453,13 +451,13 @@ plt.plot(Winter2018DateList, Winter2018SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='best')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '7_time_series_valid_Winter2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '7_time_series_hs_valid_Winter2018'), bbox_inches='tight', dpi=200)
 plt.close()
 
 # Spring 2018
@@ -467,7 +465,7 @@ fig = plt.gcf()
 fig.set_size_inches(23.5, 9.5)
 ax = plt.subplot()
 ax.grid(True)
-ax.set_title(u'Time Series Significant Wave Height - Spring 2018', fontsize=20)
+ax.set_title(u'Time Series Hs - RJ3 Buoy - Spring 2018', fontsize=20)
 font = {'size':16}
 locator = mdates.HourLocator(interval=72)  # every month
 dfmt = mdates.DateFormatter('%d%b')
@@ -477,11 +475,11 @@ plt.plot(Spring2018DateList, Spring2018SwanList, color='red', linewidth=2.2, lab
 plt.legend(loc='upper right')
 
 plt.xticks(rotation=45)
-plt.ylabel('Significant Wave Height',size=14, rotation=90, labelpad=9)
+plt.ylabel('Significant Wave Height (m)', size=16, rotation=90, labelpad=9)
 
 X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '8_time_series_valid_Spring2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '8_time_series_hs_valid_Spring2018'), bbox_inches='tight', dpi=200)
 plt.close()
