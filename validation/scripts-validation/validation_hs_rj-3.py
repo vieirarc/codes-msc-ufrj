@@ -312,7 +312,8 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_tr(i) + '_time_series_valid_hs_Summer2017'), bbox_inches='tight', dpi=200)
+	name = str(i) + 
+	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_hs_Summer2017'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 	# Autumn 2017
