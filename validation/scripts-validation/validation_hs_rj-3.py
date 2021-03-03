@@ -288,7 +288,7 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 
 
 # creating graphs
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3'
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3/hs'
 
 for i in np.arange(1,9):
 	# Summer 2017
@@ -312,7 +312,7 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_hs_Summer2017'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_hs_Summer2017'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 	# Autumn 2017
