@@ -288,7 +288,7 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 
 
 # creating graphs
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/Rj-3'
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3'
 
 for i in np.arange(1,9):
 	# Summer 2017
