@@ -336,7 +336,7 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_Autumn2017'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Autumn2017'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 	# Winter 2017
@@ -360,7 +360,7 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_Winter2017'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Winter2017'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 	# Spring 2017
@@ -384,7 +384,7 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_Spring2017'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Spring2017'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 
@@ -409,7 +409,7 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_Summer2018'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Summer2018'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 
@@ -434,7 +434,7 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_Autumn2018'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Autumn2018'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 
@@ -459,7 +459,7 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_Winter2018'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Winter2018'), bbox_inches='tight', dpi=200)
 	plt.close()
 
 	# Spring 2018
@@ -483,5 +483,5 @@ for i in np.arange(1,9):
 	X.set_major_locator(locator)
 	X.set_major_formatter(dfmt)
 	plt.rc('font', **font)
-	plt.savefig(os.path.join(pathSave + '/hs', str(i) + '_time_series_valid_Spring2018'), bbox_inches='tight', dpi=200)
+	plt.savefig(os.path.join(pathSave, str(i) + '_time_series_valid_Spring2018'), bbox_inches='tight', dpi=200)
 	plt.close()
