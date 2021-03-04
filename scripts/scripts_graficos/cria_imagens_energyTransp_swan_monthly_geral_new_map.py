@@ -425,6 +425,7 @@ for k, v in averageMonthlyDict.items():
     year = str(k)[7:11]
 
     #print(year,month,day,hour)
+    lvl = np.arange(0, 12100, 300)
     cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
     im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
     isobaths_labels = plt.clabel(im, fmt='%i', colors='white', fontsize=7)
