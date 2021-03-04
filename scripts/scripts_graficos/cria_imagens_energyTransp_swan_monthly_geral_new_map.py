@@ -21,7 +21,7 @@ import math
 
 # defining some diretories
 resultsDir = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1'
-pathSave = (resultsDir + '/swan-BG/imagens/simulacao_geral/wave_energy')
+pathSave = (resultsDir + '/swan-BG/imagens/simulacao_geral/wave_energy/monthly_average')
 
 
 
@@ -400,7 +400,10 @@ averageDec2018Masked = np.ma.masked_where(averageDec2018 == 0, averageDec2018)
 averageMonthlyDict["Dec_12_2018"] = averageDec2018Masked
 
 
-    # ************************* creating imagens ****************************************
+ 
+   # ************************* creating imagens ****************************************
+
+font = {'size':8}
 for k, v in averageMonthlyDict.items():
     fig, ax = plt.subplots(figsize=(5.2, 4))
     
