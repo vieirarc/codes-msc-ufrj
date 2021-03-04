@@ -270,7 +270,7 @@ corrTp = sumTpXYMult/denominator
 
 
 # creating table
-f = open("/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/statistics_table/statistics_table_RJ-4_buoy.txt", "x")
+f = open("/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/statistics_table/statistics_table_RJ-4_buoy.txt", "w")
 
 f.write(' ')
 f.write('****** Statistics for RJ-4 Buoy - Hs and Tp ******')
