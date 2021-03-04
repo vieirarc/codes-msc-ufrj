@@ -422,11 +422,11 @@ for k, v in averageMonthlyDict.items():
 
 
     day = str(k)[9:11]
-        month = str(k)[7:9]
-        year = str(k)[3:7]
-        hour = str(k)[12:14]
+    month = str(k)[7:9]
+    year = str(k)[3:7]
+    hour = str(k)[12:14]
     
-        infodata=datetime(int(year),int(month),int(day),int(hour), tzinfo=pytz.utc)
+    infodata=datetime(int(year),int(month),int(day),int(hour), tzinfo=pytz.utc)
     print('###############################')
     print('Horário UTC  : {0}'.format(infodata.strftime('%Y-%m-%d %H:%M')))
     ## One of the two lines below could be used if Brazilian Daylight Saving Time
@@ -446,11 +446,11 @@ for k, v in averageMonthlyDict.items():
 
     print('Horário Local: {0}'.format(infodata.strftime('%Y-%m-%d %H:%M')))
 
-        year=infodata.strftime('%Y')
-        month=infodata.strftime('%m')
-        day=infodata.strftime('%d')
-        hour=infodata.strftime('%H')
-        #print(year,month,day,hour)
+    year=infodata.strftime('%Y')
+    month=infodata.strftime('%m')
+    day=infodata.strftime('%d')
+    hour=infodata.strftime('%H')
+    #print(year,month,day,hour)
     cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
     im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
     isobaths_labels = plt.clabel(im, fmt='%i', colors='white', fontsize=7)
@@ -460,14 +460,14 @@ for k, v in averageMonthlyDict.items():
     #xF, yF  = (-43.20,  -22.93)
     #xB, yB  = (-43.20,  -22.95)
     #xC, yC  = (-43.215, -22.97)
-        xN,  yN  = (-43.08,  -22.90)
-        xRJ, yRJ = (-43.24,  -22.93)
-        xDC, yDC = (-43.26,  -22.715)
-        xMg, yMg = (-43.155, -22.685)
-        xSG, ySG = (-43.05,  -22.83)
-        xG,  yG  = (-43.075, -22.672)
+    xN,  yN  = (-43.08,  -22.90)
+    xRJ, yRJ = (-43.24,  -22.93)
+    xDC, yDC = (-43.26,  -22.715)
+    xMg, yMg = (-43.155, -22.685)
+    xSG, ySG = (-43.05,  -22.83)
+    xG,  yG  = (-43.075, -22.672)
     xI,  yI  = (-43.035, -22.77)
-        xMr, yMr = (-43.05,  -22.945)
+    xMr, yMr = (-43.05,  -22.945)
 
     xlG, ylG   = ([-43.02, -43.04], [-22.69, -22.674])
     xlI, ylI   = ([-43.0175, -43.035], [-22.732, -22.765])
@@ -480,12 +480,12 @@ for k, v in averageMonthlyDict.items():
     #ax.text(xF, yF, 'Flamengo', fontsize=6, ha='center', va='center')
     #ax.text(xB, yB, 'Botafogo', fontsize=6, ha='center', va='center')
     #ax.text(xC, yC, 'Copacabana', fontsize=6, ha='center', va='center')
-        ax.text(xN, yN, u'Niterói', fontsize=6, ha='center', va='center')
-        ax.text(xRJ, yRJ, u'Rio de Janeiro', fontsize=6, ha='center', va='center')
-        ax.text(xDC, yDC, u'Duque\nde\nCaxias', fontsize=6, ha='center', va='center')
-        ax.text(xMg, yMg, u'Magé', fontsize=6, ha='center', va='center')
-        ax.text(xSG, ySG, u'São Gonçalo', fontsize=6, ha='center', va='center')
-        ax.text(xG, yG, u'Guapimirim', fontsize=6, ha='center', va='center')
+    ax.text(xN, yN, u'Niterói', fontsize=6, ha='center', va='center')
+    ax.text(xRJ, yRJ, u'Rio de Janeiro', fontsize=6, ha='center', va='center')
+    ax.text(xDC, yDC, u'Duque\nde\nCaxias', fontsize=6, ha='center', va='center')
+    ax.text(xMg, yMg, u'Magé', fontsize=6, ha='center', va='center')
+    ax.text(xSG, ySG, u'São Gonçalo', fontsize=6, ha='center', va='center')
+    ax.text(xG, yG, u'Guapimirim', fontsize=6, ha='center', va='center')
     ax.text(xI, yI, u'Itaboraí', fontsize=6, ha='center', va='center')
     ax.text(xMr, yMr, u'Maricá', fontsize=6, ha='center', va='center')
     
@@ -494,7 +494,7 @@ for k, v in averageMonthlyDict.items():
     ax.set_xticks(x_labels)
     ax.set_xticklabels(x_labels, fontsize=8)
     ax.set_yticks(y_labels)
-        ax.set_yticklabels(y_labels, fontsize=8)
+    ax.set_yticklabels(y_labels, fontsize=8)
     cbar = fig.colorbar(cf, ticks=[-1, 0, 1], orientation='vertical', pad=0.025)
     cbar.set_label('Altura Significativa de Onda (m)', size=6, rotation=270, labelpad=20)
     cbar.set_ticks([np.arange(0, 3.1, 0.25)], update_ticks=True)
@@ -504,11 +504,10 @@ for k, v in averageMonthlyDict.items():
     #month = str(k)[7:9]
     #year = str(k)[3:7]
     plt.gca().set_aspect('equal', adjustable='box')
-        #plt.title(k[9:11] + '/' + k[7:9] + '/' + k[3:7] + ' - ' + k[12:14] + 'H', fontsize=10)
+    #plt.title(k[9:11] + '/' + k[7:9] + '/' + k[3:7] + ' - ' + k[12:14] + 'H', fontsize=10)
     plt.title('Monthly average of Wave Power ' + month + '/' + year, fontsize=10)
     plt.rc('font', **font)
     ax.set_axisbelow(False)
     plt.savefig(os.path.join(pathSave, year + monthNumber), bbox_inches='tight', dpi=400)
     plt.close()       
-
 
