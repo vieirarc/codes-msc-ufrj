@@ -403,7 +403,7 @@ averageMonthlyDict["Dec_12_2018"] = averageDec2018Masked
  
 # ************************* creating imagens ****************************************
 
-font = {'size':5}
+font = {'size':2}
 for k, v in averageMonthlyDict.items():
     fig, ax = plt.subplots(figsize=(5.2, 4))
     
@@ -437,7 +437,7 @@ for k, v in averageMonthlyDict.items():
     for l, s in zip(im.levels, strs):
         fmt[l] = s
     isobaths_labels = plt.clabel(im, fmt='%i', colors='white', fontsize=6)
-    plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=1.4, foreground="k")])
+    plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=1.2, foreground="k")])
     plt.axis([np.min(lon), np.max(lon), np.min(lat), np.max(lat)])
     #xF, yF  = (-43.20,  -22.93)
     #xB, yB  = (-43.20,  -22.95)
@@ -478,7 +478,7 @@ for k, v in averageMonthlyDict.items():
     ax.set_yticks(y_labels)
     ax.set_yticklabels(y_labels, fontsize=8)
     cbar = fig.colorbar(cf, orientation='vertical', pad=0.025)
-    cbar.set_label('Wave Power (kW/m)', size=6, rotation=90, labelpad=4)
+    cbar.set_label('Wave Power (kW/m)', size=7, rotation=90, labelpad=3)
     cbar.set_ticks([np.arange(0, 12100, 1000)]) #update_ticks=True
     cbar.ax.tick_params(labelsize=6)
     #hour = str(k)[12:18]
@@ -487,7 +487,7 @@ for k, v in averageMonthlyDict.items():
     #year = str(k)[3:7]
     plt.gca().set_aspect('equal', adjustable='box')
     #plt.title(k[9:11] + '/' + k[7:9] + '/' + k[3:7] + ' - ' + k[12:14] + 'H', fontsize=10)
-    plt.title('Monthly average of Wave Power - ' + month + '-' + year, fontsize=6)
+    plt.title('Monthly average of Wave Power - ' + month + year, fontsize=8)
     plt.rc('font', **font)
     ax.set_axisbelow(False)
     plt.savefig(os.path.join(pathSave, year + monthNumber), bbox_inches='tight', dpi=400, transparent=False)
