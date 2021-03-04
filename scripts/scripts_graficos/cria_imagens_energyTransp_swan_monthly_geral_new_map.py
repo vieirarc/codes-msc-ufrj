@@ -426,13 +426,13 @@ for k, v in averageMonthlyDict.items():
 
     #print(year,month,day,hour)
     lvl = np.arange(0, 12100, 300)
-    levels = np.arange(0, 12100, 1000)
+    levels = range(0, 12100, 1000)
     strs = ['0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0', '10.0', '11.0', '12.0']
     cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
     im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
-    fmt = []
+    fmt = {}
     for l, s in zip(im.levels, strs):
-        fmt[int(l)] = s
+        fmt[l] = s
     isobaths_labels = plt.clabel(im, fmt='%i', colors='white', fontsize=7)
     plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=1.4, foreground="k")])
     plt.axis([np.min(lon), np.max(lon), np.min(lat), np.max(lat)])
