@@ -276,6 +276,7 @@ f = open("/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG
 f.write('\n')
 f.write('       Statistics for RJ-3 Buoy - Hs and Tp       ')
 f.write('\n')
+f.write('__________________________________________________')
 f.write('\n')
 f.write('Mean Hs Buoy: ' + str(Rj3HsXm))
 f.write('\n')
