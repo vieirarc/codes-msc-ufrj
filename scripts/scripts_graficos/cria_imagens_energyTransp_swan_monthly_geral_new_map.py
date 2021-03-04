@@ -432,7 +432,7 @@ for k, v in averageMonthlyDict.items():
     im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
     fmt = []
     for l, s in zip(im.levels, strs):
-        fmt[l] = s
+        fmt[int(l)] = s
     isobaths_labels = plt.clabel(im, fmt='%i', colors='white', fontsize=7)
     plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=1.4, foreground="k")])
     plt.axis([np.min(lon), np.max(lon), np.min(lat), np.max(lat)])
