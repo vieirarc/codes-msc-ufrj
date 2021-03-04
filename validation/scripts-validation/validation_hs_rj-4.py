@@ -332,7 +332,7 @@ X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '2_time_series_valid_Autumn2017'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '2_time_series_valid_hs_Autumn2017'), bbox_inches='tight', dpi=200)
 plt.close()
 
 # Winter 2017
@@ -356,7 +356,7 @@ X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '3_time_series_valid_Winter2017'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '3_time_series_valid_hs_Winter2017'), bbox_inches='tight', dpi=200)
 plt.close()
 
 # Spring 2017
@@ -380,7 +380,7 @@ X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '4_time_series_valid_Spring2017'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '4_time_series_valid_hs_Spring2017'), bbox_inches='tight', dpi=200)
 plt.close()
 
 
@@ -405,7 +405,7 @@ X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '5_time_series_valid_Summer2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '5_time_series_valid_hs_Summer2018'), bbox_inches='tight', dpi=200)
 plt.close()
 
 
@@ -430,7 +430,7 @@ X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '6_time_series_valid_Autumn2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '6_time_series_valid_hs_Autumn2018'), bbox_inches='tight', dpi=200)
 plt.close()
 
 
@@ -455,7 +455,7 @@ X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '7_time_series_valid_Winter2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '7_time_series_valid_hs_Winter2018'), bbox_inches='tight', dpi=200)
 plt.close()
 
 # Spring 2018
@@ -479,5 +479,5 @@ X = plt.gca().xaxis
 X.set_major_locator(locator)
 X.set_major_formatter(dfmt)
 plt.rc('font', **font)
-plt.savefig(os.path.join(pathSave, '8_time_series_valid_Spring2018'), bbox_inches='tight', dpi=200)
+plt.savefig(os.path.join(pathSave, '8_time_series_valid_hs_Spring2018'), bbox_inches='tight', dpi=200)
 plt.close()

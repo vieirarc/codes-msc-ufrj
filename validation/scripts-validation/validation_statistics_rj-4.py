@@ -269,31 +269,32 @@ denominator = sqrtRootsumXiXmSqrt*sqrtRootsumYiYmSqrt
 corrTp = sumTpXYMult/denominator
 
 
-# print statistics
+# creating table
+f = open("/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/statistics_table/statistics_table_RJ-4_buoy.txt", "x")
 
-print ' '
-print '****** Statistics for RJ-4 Buoy - Hs and Tp ******'
-print ' '
-print '__________________________________________________'
-print 'Mean Hs Buoy: ', Rj4HsXm
-print 'Mean Hs SWAN: ', SwanHsYm
-print '__________________________________________________'
-print 'Mean Tp Buoy: ', Rj4TpXm
-print 'Mean Tp SWAN: ', SwanTpYm
-print '__________________________________________________'
-print 'Bias Hs: ', biasHs
-print 'Bias Tp: ', biasTp
-print '__________________________________________________'
-print 'RMSE Hs: ', RMSE_Hs
-print 'RMSE Tp: ', RMSE_Tp
-print '__________________________________________________'
-print 'SI Hs - Scatter Index: ', SI_Hs
-print 'SI Tp - Scatter Index: ', SI_Tp
-print '__________________________________________________'
-print 'Sym r Hs - Symmetric Slope: ', symR_Hs
-print 'Sym r Tp - Symmetric Slope: ', symR_Tp
-print '__________________________________________________'
-print 'Corr Hs - Correlation Coefficient: ', corrHs
-print 'Corr Tp - Correlation Coefficient: ', corrTp
-print '__________________________________________________'
+f.write(' ')
+f.write('****** Statistics for RJ-4 Buoy - Hs and Tp ******')
+f.write(' ')
+f.write('__________________________________________________')
+f.write('Mean Hs Buoy: ', Rj4HsXm)
+f.write('Mean Hs SWAN: ', SwanHsYm)
+f.write('__________________________________________________')
+f.write('Mean Tp Buoy: ', Rj4TpXm)
+f.write('Mean Tp SWAN: ', SwanTpYm)
+f.write('__________________________________________________')
+f.write('Bias Hs: ', biasHs)
+f.write('Bias Tp: ', biasTp)
+f.write('__________________________________________________')
+f.write('RMSE Hs: ', RMSE_Hs)
+f.write('RMSE Tp: ', RMSE_Tp)
+f.write('__________________________________________________')
+f.write('SI Hs - Scatter Index: ', SI_Hs)
+f.write('SI Tp - Scatter Index: ', SI_Tp)
+f.write('__________________________________________________')
+f.write('Sym r Hs - Symmetric Slope: ', symR_Hs)
+f.write('Sym r Tp - Symmetric Slope: ', symR_Tp)
+f.write('__________________________________________________')
+f.write('Corr Hs - Correlation Coefficient: ', corrHs)
+f.write('Corr Tp - Correlation Coefficient: ', corrTp)
+f.write('__________________________________________________')
 
