@@ -405,7 +405,7 @@ for k, v in averageMonthlyDict.items():
     fig, ax = plt.subplots(figsize=(5.2, 4))
     
     coastline = np.array([costaLon, costaLat])
-    #coastline = np.squeeze(coastline)
+    coastline = np.squeeze(coastline)
     coastline = coastline.transpose()
 
     patches  = []
@@ -420,36 +420,10 @@ for k, v in averageMonthlyDict.items():
     ax.add_collection(collection)
     collection.set_zorder(3)
 
+    monthNumber = str(k)[4:6]
+    month = str(k)[0:3]
+    year = str(k)[7:11]
 
-    day = str(k)[9:11]
-    month = str(k)[7:9]
-    year = str(k)[3:7]
-    hour = str(k)[12:14]
-    
-    infodata=datetime(int(year),int(month),int(day),int(hour), tzinfo=pytz.utc)
-    print('###############################')
-    print('Horário UTC  : {0}'.format(infodata.strftime('%Y-%m-%d %H:%M')))
-    ## One of the two lines below could be used if Brazilian Daylight Saving Time
-    ## (dst/Horario de Verao) was not interruped. By the way until python
-    ## libraries are not update I suggest to remove 3 hours from UTC datetime and
-    ## force to localize it
-
-    #infodata=infodata.astimezone(get_localzone())
-    #infodata=infodata.astimezone(pytz.timezone('America/Sao_Paulo'))
-
-    infodata = infodata - timedelta(hours=3)
-    infodata = datetime(infodata.year,
-                infodata.month,
-                infodata.day,
-                infodata.hour,
-                tzinfo=pytz.timezone('America/Sao_Paulo'))  
-
-    print('Horário Local: {0}'.format(infodata.strftime('%Y-%m-%d %H:%M')))
-
-    year=infodata.strftime('%Y')
-    month=infodata.strftime('%m')
-    day=infodata.strftime('%d')
-    hour=infodata.strftime('%H')
     #print(year,month,day,hour)
     cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
     im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
