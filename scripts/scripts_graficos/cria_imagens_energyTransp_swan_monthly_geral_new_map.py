@@ -485,11 +485,11 @@ for k, v in averageMonthlyDict.items():
     #day = str(k)[9:11]
     #month = str(k)[7:9]
     #year = str(k)[3:7]
-    plt.gca().set_aspect('equal', adjustable='box')
+    plt.gca().set_aspect('equal') # , adjustable='box'
     #plt.title(k[9:11] + '/' + k[7:9] + '/' + k[3:7] + ' - ' + k[12:14] + 'H', fontsize=10)
-    plt.title('Monthly average of Wave Power - ' + month + year, fontsize=8)
-    plt.rc('font', **font)
+    plt.title('Monthly average of Wave Power - ' + month + year, fontsize=7)
     ax.set_axisbelow(False)
+    plt.rc('font', **font)
     plt.savefig(os.path.join(pathSave, year + monthNumber), bbox_inches='tight', dpi=400, transparent=False)
     plt.close()       
 
