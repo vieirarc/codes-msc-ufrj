@@ -426,11 +426,15 @@ for k, v in averageMonthlyDict.items():
 
     #print(year,month,day,hour)
     lvl = np.arange(0, 12100, 300)
+    levels = range(0, 12100, 1000)
+    strs = ['0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0', '10.0', '11.0', '12.0']
     cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
     im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
+    fmt = []
+    for l, s in zip(im.levels, strs):
+        fmt[l] = s
     isobaths_labels = plt.clabel(im, fmt='%i', colors='white', fontsize=7)
     plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=1.4, foreground="k")])
-
     plt.axis([np.min(lon), np.max(lon), np.min(lat), np.max(lat)])
     #xF, yF  = (-43.20,  -22.93)
     #xB, yB  = (-43.20,  -22.95)
@@ -470,19 +474,19 @@ for k, v in averageMonthlyDict.items():
     ax.set_xticklabels(x_labels, fontsize=8)
     ax.set_yticks(y_labels)
     ax.set_yticklabels(y_labels, fontsize=8)
-    cbar = fig.colorbar(cf, ticks=[-1, 0, 1], orientation='vertical', pad=0.025)
-    cbar.set_label('Altura Significativa de Onda (m)', size=6, rotation=270, labelpad=20)
-    cbar.set_ticks([np.arange(0, 3.1, 0.25)], update_ticks=True)
-    cbar.ax.tick_params(labelsize=7)
+    cbar = fig.colorbar(cf, orientation='vertical', pad=0.025)
+    cbar.set_label('Wave Power (kW/m)', size=6, rotation=90, labelpad=4)
+    cbar.set_ticks([np.arange(0, 12100, 500)]) #update_ticks=True
+    cbar.ax.tick_params(labelsize=6)
     #hour = str(k)[12:18]
     #day = str(k)[9:11]
     #month = str(k)[7:9]
     #year = str(k)[3:7]
     plt.gca().set_aspect('equal', adjustable='box')
     #plt.title(k[9:11] + '/' + k[7:9] + '/' + k[3:7] + ' - ' + k[12:14] + 'H', fontsize=10)
-    plt.title('Monthly average of Wave Power ' + month + '/' + year, fontsize=10)
+    plt.title('Monthly average of Wave Power - ' + month + '/' + year, fontsize=10)
     plt.rc('font', **font)
     ax.set_axisbelow(False)
-    plt.savefig(os.path.join(pathSave, year + monthNumber), bbox_inches='tight', dpi=400)
+    plt.savefig(os.path.join(pathSave, year + monthNumber), bbox_inches='tight', dpi=400, transparent=False)
     plt.close()       
 
