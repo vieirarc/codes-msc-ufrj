@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 
 
 rj4 = np.genfromtxt('/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/buoy_data/SIMCOSTA_RJ-4_OCEAN_2017-08-27_2019-10-19.dat')
-datasetDir = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_dir.nc')
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao'
+datasetDir = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_dir.nc')
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/imagens/simulacao_geral/validacao/RJ-4/dir'
 
 
 lats = datasetDir['latitude'][:]
@@ -287,8 +287,6 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 
 
 # creating graphs
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/dir'
-
 
 # Summer 2017
 fig = plt.gcf()

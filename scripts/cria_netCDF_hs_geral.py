@@ -54,7 +54,7 @@ for i in filenamesList:
 	# ******** netCDF file ********
 
 	# create netcdf file
-	waveDataset = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/' + i[0:-4] + '.nc', \
+	waveDataset = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/simulacao_geral/' + i[0:-4] + '.nc', \
 							'w', format='NETCDF3_CLASSIC')
 
 

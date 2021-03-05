@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 
 
 rj4 = np.genfromtxt('/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/buoy_data/SIMCOSTA_RJ-4_OCEAN_2017-08-27_2019-10-19.dat')
-datasetHs = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_hs.nc')
-datasetTp = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_tp.nc')
+datasetHs = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_hs.nc')
+datasetTp = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_tp.nc')
 
 
 
@@ -270,7 +270,7 @@ corrTp = sumTpXYMult/denominator
 
 
 # creating table
-f = open("/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/statistics_table/statistics_table_RJ-4_buoy.txt", "w")
+f = open("/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/imagens/simulacao_geral/validacao/RJ-4/statistics_table/statistics_table_RJ-4_buoy.txt", "w")
 
 f.write('\n')
 f.write('       Statistics for RJ-4 Buoy - Hs and Tp       ')
