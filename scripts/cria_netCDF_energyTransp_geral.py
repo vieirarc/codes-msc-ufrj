@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 
 # get a list with file names
 filenamesList = []
-for filename in os.listdir('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/simulacao_geral'):
+for filename in os.listdir('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/simulacao_geral'):
 	if '_transp_energy' in filename:
 		filenamesList.append(filename)
 
@@ -20,7 +20,7 @@ filenamesList.sort() # sort list in rising order
 
 for i in filenamesList:
 	# accessing data
-	energyTransp = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/simulacao_geral/' + i)
+	energyTransp = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/simulacao_geral/' + i)
 	lon_lat = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/swan/lon_lat_bg_laje.mat')
 	lons = lon_lat['lon_bg_laje']
 	lats = lon_lat['lat_bg_laje']
@@ -62,7 +62,7 @@ for i in filenamesList:
 	# ******** netCDF file ********
 
 	# create netcdf file
-	energyDataset = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/' + i[0:-4] + '.nc',\
+	energyDataset = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/simulacao_geral/' + i[0:-4] + '.nc',\
 						 'w', format='NETCDF3_64BIT_OFFSET')
 
 	# create dimensions
