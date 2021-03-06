@@ -9,7 +9,9 @@ import matplotlib.pyplot as plt
 
 
 rj4 = np.genfromtxt('/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/buoy_data/SIMCOSTA_RJ-4_OCEAN_2017-08-27_2019-10-19.dat')
-datasetTp = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_tp.nc')
+datasetTp = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_tp.nc')
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/tp'
+
 
 lats = datasetTp['latitude'][:]
 lons = datasetTp['longitude'][:]
@@ -73,10 +75,10 @@ tpSwanFinalDict = {}
 
 for k, v in tpBuoyDict.items():
 	keyDateBuoy = datetime.strptime(k, '%Y%m%d_%H%M')
-	if keyDateBuoy.minute == 53:
-		newDate = keyDateBuoy + timedelta(minutes=7)
+	if keyDateBuoy.minute == 25:
+		newDate = keyDateBuoy - timedelta(minutes=25)
 	else:
-		newDate = keyDateBuoy + timedelta(minutes=5)
+		continue
 	for k2, v2 in tpSwanDict.items():
 		keyDateSwan = datetime.strptime(k2, '%Y%m%d_%H%M')
 		if newDate == keyDateSwan:
@@ -285,7 +287,6 @@ for (k, v), (k2, v2) in zip(Spring2018BuoyOrdered.items(), Spring2018SwanOrdered
 
 
 # creating graphs
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/imagens/simulacao_geral/validacao/RJ-4/tp'
 
 # Summer 2017
 fig = plt.gcf()

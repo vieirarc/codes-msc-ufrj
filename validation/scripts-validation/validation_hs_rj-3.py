@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 
 
 rj3 = np.genfromtxt('/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/buoy_data/SIMCOSTA_RJ-3_OCEAN_2016-07-14_2019-09-11.dat')
-datasetHs = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_hs.nc')
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/imagens/simulacao_geral/validacao/RJ-3/hs'
+datasetHs = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_hs.nc')
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3/hs'
 
 
 lats = datasetHs['latitude'][:]
@@ -76,10 +76,10 @@ hsSwanFinalDict = {}
 
 for k, v in hsBuoyDict.items():
 	keyDateBuoy = datetime.strptime(k, '%Y%m%d_%H%M')
-	if keyDateBuoy.minute == 53:
-		newDate = keyDateBuoy + timedelta(minutes=7)
+	if keyDateBuoy.minute == 25:
+		newDate = keyDateBuoy - timedelta(minutes=25)
 	else:
-		newDate = keyDateBuoy + timedelta(minutes=5)
+		continue
 	for k2, v2 in hsSwanDict.items():
 		keyDateSwan = datetime.strptime(k2, '%Y%m%d_%H%M')
 		if newDate == keyDateSwan:
