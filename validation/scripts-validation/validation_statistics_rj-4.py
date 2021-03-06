@@ -31,7 +31,7 @@ hsBuoyDictInit = {}
 tpBuoyDictInit = {}
 
 for i in rj4[1::]:
-	if i[4] == 55 or i[4] == 53: # selecting only the fields of 55' and 53'
+	if i[4] == 25 or i[4] == 23: # selecting only the fields of 55' and 53'
 		yearInt = int(i[0])
 		monthInt = int(i[1])
 		dayInt = int(i[2])
@@ -96,7 +96,7 @@ for (k, v), (k4, v4) in zip(hsBuoyDict.items(), tpBuoyDict.items()):
 	if keyDateBuoy.minute == 25:
 		newDate = keyDateBuoy - timedelta(minutes=25)
 	else:
-		continue
+		newDate = keyDateBuoy - timedelta(minutes=23)
 	for (k2, v2), (k3, v3) in zip(hsSwanDict.items(), tpSwanDict.items()):
 		keyDateSwanHs = datetime.strptime(k2, '%Y%m%d_%H%M')
 		keyDateSwanTp = datetime.strptime(k3, '%Y%m%d_%H%M')

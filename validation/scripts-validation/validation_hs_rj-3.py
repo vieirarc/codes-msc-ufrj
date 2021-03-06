@@ -27,7 +27,7 @@ costaLon = coastline['lon']
 hsBuoyDictInit = {}
 
 for i in rj3[1::]:
-	if i[4] == 55 or i[4] == 53: # selecting only the fields of 55' and 53'
+	if i[4] == 25 or i[4] == 23: # selecting only the fields of 55' and 53'
 		yearInt = int(i[0])
 		monthInt = int(i[1])
 		dayInt = int(i[2])
@@ -79,7 +79,7 @@ for k, v in hsBuoyDict.items():
 	if keyDateBuoy.minute == 25:
 		newDate = keyDateBuoy - timedelta(minutes=25)
 	else:
-		continue
+		newDate = keyDateBuoy - timedelta(minutes=23)
 	for k2, v2 in hsSwanDict.items():
 		keyDateSwan = datetime.strptime(k2, '%Y%m%d_%H%M')
 		if newDate == keyDateSwan:
