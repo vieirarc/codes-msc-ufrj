@@ -10,10 +10,12 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 
+# env. variable from shell
+simulationName = os.environ["simulation_name"]
 
 rj3 = np.genfromtxt('/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/buoy_data/SIMCOSTA_RJ-3_OCEAN_2016-07-14_2019-09-11.dat')
-datasetHs = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_hs.nc')
-datasetTp = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_tp.nc')
+datasetHs = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/' + simulationName + '/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_hs.nc')
+datasetTp = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/' + simulationName + '/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_tp.nc')
 
 
 
@@ -109,7 +111,7 @@ for (k, v), (k4, v4) in zip(hsBuoyDict.items(), tpBuoyDict.items()):
 			print '*** Field in concordance: ' + newDateString
 		else:
 			continue
-	print '*** End of loop interaction ***'
+
 
 hsBuoyFinalDictOrdered = collections.OrderedDict(sorted(hsBuoyFinalDict.items()))
 hsSwanFinalDictOrdered = collections.OrderedDict(sorted(hsSwanFinalDict.items()))
@@ -271,7 +273,7 @@ corrTp = sumTpXYMult/denominator
 
 
 # creating table
-f = open("/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3/statistics_table/statistics_table_RJ-3_buoy.txt", "w")
+f = open('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/' + simulationName + '/swan-BG/imagens/simulacao_geral/validacao/RJ-3/statistics_table/statistics_table_RJ-3_buoy.txt', "w")
 
 f.write('\n')
 f.write('       Statistics for RJ-3 Buoy - Hs and Tp       ')

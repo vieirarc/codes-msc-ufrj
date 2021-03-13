@@ -9,9 +9,12 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 
+# env. variable from shell
+simulationName = os.environ["simulation_name"]
+
 rj4 = np.genfromtxt('/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/buoy_data/SIMCOSTA_RJ-4_OCEAN_2017-08-27_2019-10-19.dat')
-datasetDir = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_dir.nc')
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-4/dir'
+datasetDir = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/' + simulationName + '/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_dir.nc')
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/' + simulationName + '/swan-BG/imagens/simulacao_geral/validacao/RJ-4/dir'
 
 
 lats = datasetDir['latitude'][:]
@@ -89,7 +92,8 @@ for k, v in dirBuoyDict.items():
 			print '*** Field in concordance: ' + newDateString
 		else:
 			continue
-	print '*** End of loop interaction ***'
+
+
 
 dirBuoyFinalDictOrdered = collections.OrderedDict(sorted(dirBuoyFinalDict.items()))
 dirSwanFinalDictOrdered = collections.OrderedDict(sorted(dirSwanFinalDict.items()))

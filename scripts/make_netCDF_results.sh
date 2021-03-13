@@ -8,7 +8,12 @@
 # ********************************************************************************** #
 
 
+# input by user
+#simulation_n	ame = raw_input('Simulation Name: ')
+
+
 export workdir=/home/piatam8/ww3/ww3_shell/modelo_hindcast
+
 
 cd $workdir/scripts
 

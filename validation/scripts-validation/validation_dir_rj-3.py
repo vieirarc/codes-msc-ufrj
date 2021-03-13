@@ -9,9 +9,12 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
 
+# env. variable from shell
+simulationName = os.environ["simulation_name"]
+
 rj3 = np.genfromtxt('/home/piatam8/ww3/ww3_shell/modelo_hindcast/validation/buoy_data/SIMCOSTA_RJ-3_OCEAN_2016-07-14_2019-09-11.dat')
-datasetDir = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_dir.nc')
-pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1/swan-BG/imagens/simulacao_geral/validacao/RJ-3/dir'
+datasetDir = Dataset('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/' + simulationName + '/swan-BG/arquivos_netCDF/simulacao_geral/swan.geral_dir.nc')
+pathSave = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/' + simulationName + '/swan-BG/imagens/simulacao_geral/validacao/RJ-3/dir'
 
 
 lats = datasetDir['latitude'][:]
@@ -86,10 +89,10 @@ for k, v in dirBuoyDict.items():
 			dirSwanFinalDict["{0}".format(k2)] = v2
 			newDateString = newDate.strftime('%Y%m%d_%H%M')
 			dirBuoyFinalDict["{0}".format(newDateString)] = v
-			print '*** Field in concordance: ' + newDateString
+			print '*** Field in concordance - Buoy/Swan: ' + newDateString
 		else:
 			continue
-	print '*** End of loop interaction ***'
+
 
 dirBuoyFinalDictOrdered = collections.OrderedDict(sorted(dirBuoyFinalDict.items()))
 dirSwanFinalDictOrdered = collections.OrderedDict(sorted(dirSwanFinalDict.items()))
