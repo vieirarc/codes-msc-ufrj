@@ -429,7 +429,7 @@ for k, v in averageMonthlyDict.items():
 
     #print(year,month,day,hour)
     lvl = np.arange(0, 12.1, 3)
-    levels = range(0, 12.1, 1)
+    levels = range(0, 13, 1)
     strs = ['0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0', '10.0', '11.0', '12.0']
     cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
     im = plt.contour(lon, lat, v, levels, colors='white', linewidth=0.9, linestyles='solid')
