@@ -432,7 +432,7 @@ for k, v in averageMonthlyDict.items():
     levels = range(0, 12100, 1000)
     strs = ['0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0', '10.0', '11.0', '12.0']
     cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
-    im = plt.contour(lon, lat, v, levels, colors='white', linewidth=0.9, linestyles='solid')
+    im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
     fmt = {}
     for l, s in zip(im.levels, strs):
         fmt[l] = s
@@ -489,8 +489,8 @@ for k, v in averageMonthlyDict.items():
     #plt.title(k[9:11] + '/' + k[7:9] + '/' + k[3:7] + ' - ' + k[12:14] + 'H', fontsize=10)
     plt.title('Monthly average of Wave Power - ' + month + year, fontsize=7)
     ax.set_axisbelow(False)
-    plt.rc('xtick',labelsize=8)
-    plt.rc('ytick',labelsize=8)
+    plt.rc('xtick',labelsize=2)
+    plt.rc('ytick',labelsize=2)
     plt.savefig(os.path.join(pathSave, year + monthNumber), bbox_inches='tight', dpi=400, transparent=False)
     plt.close()       
 
