@@ -436,7 +436,7 @@ for k, v in averageMonthlyDict.items():
     fmt = {}
     for l, s in zip(im.levels, strs):
         fmt[l] = s
-    isobaths_labels = plt.clabel(im, fmt.values(), colors='white', fontsize=6)
+    isobaths_labels = plt.clabel(im, fmt, colors='white', fontsize=6)
     plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=1.2, foreground="k")])
     plt.axis([np.min(lon), np.max(lon), np.min(lat), np.max(lat)])
     #xF, yF  = (-43.20,  -22.93)
