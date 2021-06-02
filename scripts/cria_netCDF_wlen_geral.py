@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 # get a list with file names
 filenamesList = []
 for filename in os.listdir('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG/simulacao_geral'):
-	if '_tp' in filename:
+	if '_wlen' in filename:
 		filenamesList.append(filename)
 
 filenamesList.sort() # sort list in rising order
@@ -20,7 +20,7 @@ filenamesList.sort() # sort list in rising order
 
 for i in filenamesList:
 	# accessing data
-	tp = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG//simulacao_geral/' + i)
+	wlen = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_2/swan-BG//simulacao_geral/' + i)
 	lon_lat = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/swan/lon_lat_bg_laje.mat')
 	lons = lon_lat['lon_bg_laje']
 	lats = lon_lat['lat_bg_laje']
@@ -32,24 +32,24 @@ for i in filenamesList:
 
 
 	# sorting elements inside dict
-	tpOrdered = collections.OrderedDict(sorted(tp.items()))
+	wlenOrdered = collections.OrderedDict(sorted(wlen.items()))
 	
 	# deleting unecessary elements
-	fistKey = list(tpOrdered)[0]
-	del tpOrdered[fistKey],\
-							tpOrdered['__globals__'], tpOrdered['__header__'], tpOrdered['__version__']
+	fistKey = list(wlenOrdered)[0]
+	del wlenOrdered[fistKey],\
+							wlenOrdered['__globals__'], wlenOrdered['__header__'], wlenOrdered['__version__']
 
 
-	tpDict = {}
+	wlenDict = {}
 
 
-	for k, v in tpOrdered.items():
-		tpMasked = np.ma.masked_invalid(v)
-		tpDict["tp_{0}".format(k)] = v
+	for k, v in wlenOrdered.items():
+		wlenMasked = np.ma.masked_invalid(v)
+		wlenDict["wlen_{0}".format(k)] = v
 
 
-	tpNewOrdered = collections.OrderedDict(sorted(tpDict.items()))
-	tpConcat = np.stack(tpNewOrdered.values(), axis=0)
+	wlenNewOrdered = collections.OrderedDict(sorted(wlenDict.items()))
+	wlenConcat = np.stack(wlenNewOrdered.values(), axis=0)
 
 	# ******** netCDF file ********
 
@@ -69,7 +69,7 @@ for i in filenamesList:
 	timeW = waveDataset.createVariable('time', "f8", ('time',))
 
 	# create 3D U and V variables
-	tpWave = waveDataset.createVariable('tp', "f8", ('time', 'latitude', 'longitude'))
+	wlenWave = waveDataset.createVariable('wlen', "f8", ('time', 'latitude', 'longitude'))
 
 
 	# global attributes     
@@ -80,15 +80,15 @@ for i in filenamesList:
 	longitudesW.units = 'degree_east'
 	timeW.units = 'days since 1990-01-01 00:00:00.0'
 	timeW.calendar = 'gregorian'
-	tpWave.units = 's'
+	wlenWave.units = 'm'
 
 	# add data into variables
 	latitudesW[:] = la[:]
 	longitudesW[:] = lo[:]
-	tpWave[:] = tpConcat[:]
+	wlenWave[:] = wlenConcat[:]
 	timeW[:] = tempo
 
 	waveDataset.close()
-	del tpConcat
-	del tpOrdered
+	del wlenConcat
+	del wlenOrdered
 
