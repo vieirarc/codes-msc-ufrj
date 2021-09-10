@@ -2,26 +2,29 @@
 from __future__ import division
 import os
 import matplotlib.pyplot as plt
-#plt.switch_backend('Qt4Agg')
 import matplotlib.patheffects as PathEffects
 import matplotlib as mpl
 import matplotlib.dates as mdates
 from matplotlib.patches import Polygon, Path
+
+#plt.switch_backend('Qt4Agg')
+plt.switch_backend('agg')
+
 from netCDF4 import Dataset
 import numpy as np
 import pytz
 import scipy.io as sio
-from mpl_toolkits.basemap import Basemap, cm
+from matplotlib.collections import PatchCollection
+#from mpl_toolkits.basemap import Basemap, cm
 from datetime import date, datetime, timedelta
 from intdir2uv import intdir2uv
-from matplotlib.collections import PatchCollection
-from tzlocal import get_localzone # $ pip install tzlocal
+from tzlocal import get_localzone
 import math
 
 
 # defining some diretories
-resultsDir = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1'
-pathSave = (resultsDir + '/swan-BG/imagens/simulacao_geral/wave_energy/monthly_average')
+resultsDir = '/scratch/90081c/vieirarc/ww3-projects/modelo_hindcast/resultados/teste_18'
+pathSaveBg = (resultsDir + '/swan-BG/imagens/simulacao_geral/wave_energy/monthly_average')
 
 
 
@@ -36,9 +39,9 @@ time = datasetEnergy['time']
 lats = datasetEnergy['latitude'][:]
 lons = datasetEnergy['longitude'][:]
 lon, lat = np.meshgrid(lons, lats)
-coastline = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/swan/coastline_bg.mat')
-costaLat = coastline['lat']
-costaLon = coastline['lon']
+coastline = sio.loadmat('/scratch/90081c/vieirarc/ww3-projects/modelo_hindcast/swan/coastline_bg.mat')
+costaLon = np.genfromtxt('/scratch/90081c/vieirarc/ww3-projects/modelo_hindcast/swan/lon_bg_mun.txt')
+costaLat = np.genfromtxt('/scratch/90081c/vieirarc/ww3-projects/modelo_hindcast/swan/lat_bg_mun.txt')
 
 # counters
 # 2017
@@ -117,35 +120,35 @@ fieldsDec2018 = 0
  
 # defining dates
 # initial date according ww3 results
-initialDateVariable = datetime(1990, 01, 01, 00)
+initialDateVariable = datetime(1990, 1, 1, 0)
 
 # 2017
-jan2017 = datetime(2017, 1, 01, 00)
-feb2017 = datetime(2017, 2, 01, 00)
-mar2017 = datetime(2017, 3, 01, 00)
-apr2017 = datetime(2017, 4, 01, 00)
-may2017 = datetime(2017, 5, 01, 00)
-jun2017 = datetime(2017, 6, 01, 00)
-jul2017 = datetime(2017, 7, 01, 00)
-aug2017 = datetime(2017, 8, 01, 00)
-sep2017 = datetime(2017, 9, 01, 00)
-oct2017 = datetime(2017, 10, 01, 00)
-nov2017 = datetime(2017, 11, 01, 00)
-dec2017 = datetime(2017, 12, 01, 00)
+jan2017 = datetime(2017, 1, 1, 0)
+feb2017 = datetime(2017, 2, 1, 0)
+mar2017 = datetime(2017, 3, 1, 0)
+apr2017 = datetime(2017, 4, 1, 0)
+may2017 = datetime(2017, 5, 1, 0)
+jun2017 = datetime(2017, 6, 1, 0)
+jul2017 = datetime(2017, 7, 1, 0)
+aug2017 = datetime(2017, 8, 1, 0)
+sep2017 = datetime(2017, 9, 1, 0)
+oct2017 = datetime(2017, 10, 1, 0)
+nov2017 = datetime(2017, 11, 1, 0)
+dec2017 = datetime(2017, 12, 1, 0)
 
 # 2018
-jan2018 = datetime(2018, 1, 01, 00)
-feb2018 = datetime(2018, 2, 01, 00)
-mar2018 = datetime(2018, 3, 01, 00)
-apr2018 = datetime(2018, 4, 01, 00)
-may2018 = datetime(2018, 5, 01, 00)
-jun2018 = datetime(2018, 6, 01, 00)
-jul2018 = datetime(2018, 7, 01, 00)
-aug2018 = datetime(2018, 8, 01, 00)
-sep2018 = datetime(2018, 9, 01, 00)
-oct2018 = datetime(2018, 10, 01, 00)
-nov2018 = datetime(2018, 11, 01, 00)
-dec2018 = datetime(2018, 12, 01, 00)
+jan2018 = datetime(2018, 1, 1, 0)
+feb2018 = datetime(2018, 2, 1, 0)
+mar2018 = datetime(2018, 3, 1, 0)
+apr2018 = datetime(2018, 4, 1, 0)
+may2018 = datetime(2018, 5, 1, 0)
+jun2018 = datetime(2018, 6, 1, 0)
+jul2018 = datetime(2018, 7, 1, 0)
+aug2018 = datetime(2018, 8, 1, 0)
+sep2018 = datetime(2018, 9, 1, 0)
+oct2018 = datetime(2018, 10, 1, 0)
+nov2018 = datetime(2018, 11, 1, 0)
+dec2018 = datetime(2018, 12, 1, 0)
 
 # calculating wave power for each month
 for index in range(time.size):
@@ -400,13 +403,15 @@ averageDec2018Masked = np.ma.masked_where(averageDec2018 == 0, averageDec2018)
 averageMonthlyDict["Dec_12_2018"] = averageDec2018Masked
 
 
- 
-# ************************* creating imagens ****************************************
+# **************** ************************* *************
+# **************** gera e salva imagens **** *************
 
-font = {'size':2}
+
+font = {'size':8}
+
 for k, v in averageMonthlyDict.items():
     fig, ax = plt.subplots(figsize=(5.2, 4))
-    
+
     coastline = np.array([costaLon, costaLat])
     coastline = np.squeeze(coastline)
     coastline = coastline.transpose()
@@ -423,22 +428,59 @@ for k, v in averageMonthlyDict.items():
     ax.add_collection(collection)
     collection.set_zorder(3)
 
-    monthNumber = str(k)[4:6]
-    month = str(k)[0:3]
-    year = str(k)[7:11]
 
+    day = '02' # whatever!
+    day = int(day)
+    month = k[4:6]
+    month = int(month)
+    year = k[7::]
+    year = int(year)
+    hour = '00'
+    hour = int(hour)
+
+    infodata=datetime(int(year),int(month),int(day),int(hour), tzinfo=pytz.utc)
+    print('###############################')
+    print('Horário UTC  : {0}'.format(infodata.strftime('%Y-%m-%d %H:%M')))
+    ## One of the two lines below could be used if Brazilian Daylight Saving Time
+    ## (dst/Horario de Verao) was not interruped. By the way until python
+    ## libraries are not update I suggest to remove 3 hours from UTC datetime and
+    ## force to localize it
+
+    #infodata=infodata.astimezone(get_localzone())
+    #infodata=infodata.astimezone(pytz.timezone('America/Sao_Paulo'))
+
+    infodata = infodata - timedelta(hours=3)
+    infodata = datetime(infodata.year,
+                infodata.month,
+                infodata.day,
+                infodata.hour,
+                tzinfo=pytz.timezone('America/Sao_Paulo'))  
+
+    print('Horário Local: {0}'.format(infodata.strftime('%Y-%m-%d %H:%M')))
+
+    year=infodata.strftime('%Y')
+    month=infodata.strftime('%m')
+    day=infodata.strftime('%d')
+    hour=infodata.strftime('%H')
     #print(year,month,day,hour)
-    lvl = np.arange(0, 12.1, 3)
-    levels = range(0, 12100, 1000)
-    strs = ['0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0', '10.0', '11.0', '12.0']
-    cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=12100, shading='gouraud')
-    im = plt.contour(lon, lat, v, levels, colors='white', linestyles='solid')
+    #uEnergyField = uWaveEnergy[index,:,:]
+    #vEnergyField = vWaveEnergy[index,:,:]
+    #waveEnegy = np.hypot(uEnergyField, vEnergyField) # equivalent to "sqrt(u**2 + v**2)"
+    plt.plot(costaLon, costaLat, 'k', linewidth=0.2, zorder=4)
+    lvl = np.arange(0, 14100, 1000)
+    #levels = [0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 11500, 12000]
+    levels = range(0,14100, 1000)
+    #strs = ['1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0', '5.5', '6.0', '6.5', '7.0', '7.5', '8.0', '8.5', '9.0'] #, '9.5', '10.0', '10.5', '11.0', '11.5', '12.0', '12.5', '13.0', '13.5', '14.0', '14.5', '15.0', '15.5', '16.0','16.5','17.0', '17.5', '18.0', '18.5', '19.0', '19.5', '20.0']
+    strs = ['1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0', '10.0', '11.0', '12.0', '13.0', '14.0']
+    cf = plt.contourf(lon, lat, v, lvl, vmin=0, vmax=13100)
+    im = plt.contour(lon, lat, v, levels, linewidths=0.5, colors='white', linestyles='solid')
     fmt = {}
     for l, s in zip(im.levels, strs):
         fmt[l] = s
-    isobaths_labels = plt.clabel(im, fmt='%i', colors='white', fontsize=6)
-    plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=1.2, foreground="k")])
+    isobaths_labels = plt.clabel(im, inline=1, inline_spacing=-2.5, fmt=fmt, colors='white', fontsize=4.7)
+    plt.setp(isobaths_labels, path_effects=[PathEffects.withStroke(linewidth=0.8, foreground="k")])
     plt.axis([np.min(lon), np.max(lon), np.min(lat), np.max(lat)])
+
     #xF, yF  = (-43.20,  -22.93)
     #xB, yB  = (-43.20,  -22.95)
     #xC, yC  = (-43.215, -22.97)
@@ -470,27 +512,33 @@ for k, v in averageMonthlyDict.items():
     ax.text(xG, yG, u'Guapimirim', fontsize=6, ha='center', va='center')
     ax.text(xI, yI, u'Itaboraí', fontsize=6, ha='center', va='center')
     ax.text(xMr, yMr, u'Maricá', fontsize=6, ha='center', va='center')
-    
+
     x_labels = np.round(np.arange(-43.3,-42.95, 0.07), 2)
     y_labels = np.round(np.arange(-23.09, -22.64, 0.07), 2)
     ax.set_xticks(x_labels)
-    ax.set_xticklabels(x_labels, fontsize=8)
+    ax.set_xticklabels(x_labels, fontsize=6)
     ax.set_yticks(y_labels)
-    ax.set_yticklabels(y_labels, fontsize=8)
-    cbar = fig.colorbar(cf, orientation='vertical', pad=0.025)
-    cbar.set_label('Wave Power (kW/m)', size=7, rotation=90, labelpad=3)
-    cbar.set_ticks([np.arange(0, 12100, 1000)]) #update_ticks=True
+    ax.set_yticklabels(y_labels, fontsize=6)
+    cbar = fig.colorbar(cf, orientation='vertical')
+    cbar.set_ticks([np.arange(0, 14100, 1000)])# update_ticks=True
+    #cbar.set_yticks([0, 4.1, 0.2])[#0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.1])
+    cbar.set_ticklabels(['0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0', '7.0', '8.0', '9.0', '10.0', '11.0', '12.0', '13.0', '14.0']) #, '16.0', '17.0', '18.0', '19.0', '20.0']) # vertically oriented colorbar)
+    cbar.set_label(u'Wave energy (kW/m)', size=6, rotation=90, labelpad=4)
     cbar.ax.tick_params(labelsize=6)
-    #hour = str(k)[12:18]
-    #day = str(k)[9:11]
-    #month = str(k)[7:9]
-    #year = str(k)[3:7]
-    plt.gca().set_aspect('equal') # , adjustable='box'
+    #plt.rcParams.update({'font.size':4})
+    plt.gca().set_aspect('equal', adjustable='box')
     #plt.title(k[9:11] + '/' + k[7:9] + '/' + k[3:7] + ' - ' + k[12:14] + 'H', fontsize=10)
-    plt.title('Monthly average of Wave Power - ' + month + year, fontsize=7)
+    monthStr = k[0:3]
+    plt.title('Average Wave Energy - ' + monthStr + ' ' + year, fontsize=6)
+    plt.rc('font', **font)
     ax.set_axisbelow(False)
-    plt.rc('xtick',labelsize=2)
-    plt.rc('ytick',labelsize=2)
-    plt.savefig(os.path.join(pathSave, year + monthNumber), bbox_inches='tight', dpi=400, transparent=False)
-    plt.close()       
+    if year == '2018':
+        month2018 = int(month) + 12
+        plt.savefig(os.path.join(pathSaveBg, str(month2018) + '_monthly_average_wave_energy_' + year + month), bbox_inches='tight', dpi=300, transparent=False) # onda_bg_aaaammdd_hhmmss.png
+        plt.close()
+    else:
+        plt.savefig(os.path.join(pathSaveBg, month + '_monthly_average_wave_energy_' + year + month), bbox_inches='tight', dpi=300, transparent=False) # onda_bg_aaaammdd_hhmmss.png
+        plt.close()
+
+
 

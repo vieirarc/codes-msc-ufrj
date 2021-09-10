@@ -15,8 +15,8 @@ import math
 
 
 # defining some diretories
-resultsDir = '/home/piatam8/ww3/ww3_shell/modelo_hindcast/resultados/teste_1'
-pathSave = (resultsDir + '/swan-BG/imagens/simulacao_geral/wave_energy')
+resultsDir = '/scratch/90081c/vieirarc/ww3-projects/modelo_hindcast/resultados/teste_18'
+pathSave = (resultsDir + '/swan-BG/imagens/simulacao_geral/wave_energy/annual_average/')
 
 
 
@@ -31,7 +31,7 @@ time = datasetEnergy['time']
 lats = datasetEnergy['latitude'][:]
 lons = datasetEnergy['longitude'][:]
 lon, lat = np.meshgrid(lons, lats)
-coastline = sio.loadmat('/home/piatam8/ww3/ww3_shell/modelo_hindcast/swan/coastline_bg.mat')
+coastline = sio.loadmat('/scratch/90081c/vieirarc/ww3-projects/modelo_hindcast/swan/coastline_bg.mat')
 costaLat = coastline['lat']
 costaLon = coastline['lon']
 
@@ -41,12 +41,12 @@ sumWaveEnergy2018 = 0
 fields2017 = 0
 fields2018 = 0
 
-initialDateVariable = datetime(1990, 01, 01, 00)
+initialDateVariable = datetime(1990,1,1,0)
 
-initialDate2017 = datetime(2017, 01, 01, 00)
+initialDate2017 = datetime(2017, 1, 1, 0)
 finalDate2017 = datetime(2017, 12, 31, 22)
 
-initialDate2018 = datetime(2018, 01, 01, 00)
+initialDate2018 = datetime(2018, 1, 1, 0)
 finalDate2018 = datetime(2018, 12, 31, 22)
 
 for index in range(time.size):
