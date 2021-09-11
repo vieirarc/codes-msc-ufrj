@@ -578,6 +578,8 @@ for (k1, v1), (k2, v2) in zip(dirDict.items(), energyDict.items()):
         continue
 
 
+
+
 # *****************************
 
 # original windrose plot
